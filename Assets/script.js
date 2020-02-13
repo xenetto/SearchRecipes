@@ -8,8 +8,10 @@ let mealImage
 let settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://api.spoonacular.com/recipes/complexSearch?minFat=1&maxFat=50&minCarbs=5&maxCarbs=100&number=5&type=salad&addRecipeInformation=true&apiKey=54f37f7c8cf54dabb996147b296b7f34",
-	"method": "GET"
+    "method": "GET",
+    "url": "https://api.spoonacular.com/recipes/complexSearch?minFat=1&maxFat=50&minCarbs=5&maxCarbs=100&number=5&type=salad&addRecipeInformation=true&apiKey=54f37f7c8cf54dabb996147b296b7f34"
+    //"url": "https://api.spoonacular.com/recipes/582897/nutritionWidget?apiKey=54f37f7c8cf54dabb996147b296b7f34&defaultCss=true" //$('body').html(response);
+    
 	}
 
 
@@ -20,6 +22,8 @@ $.ajax(settings).fail(getError);
 
 function getResponse( response ){
     console.log(`<.Then> callback <${response}>`);console.log(response);
+    
+    
     let resultsCounter = 0;
     while (resultsCounter<response.results.length){
 
