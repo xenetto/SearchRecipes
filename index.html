@@ -2,21 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="Assets/style.css">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nutrition Plan Maker</title>
+    <link rel="icon" href="Assets/images/Logo.png">
+    <link rel="stylesheet" type="text/css" href="Assets/style.css">
+    <script scr="https://code.jquery.com/jquery-3.3.0.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.toggle').click(function(){
+                $('ul').toggleClass('active');
+            })
+        })
+    </script>
+
 </head>
 <body>
-    <div>Header</div>
+    <section>
+    <header>
+        <label class="logo">Nutrition Plan Maker</a>
+            <a class="toggle">Menu</a>
+        <ul class="">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Make Your Own</a></li>
+            <li><a href="#">Recipe Search Engine</a></li>
+            <li><a href="#">Feedback</a></li>
+        </ul>
+    </header>
 
-
-    <div>Body</div>
-    
-    <div id="meal-image-view"></div>
 
     <script src="Assets/script.js"></script>
+
+    </section>
 </body>
 </html>
