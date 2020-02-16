@@ -9,7 +9,7 @@ let settings = {
 	"async": true,
 	"crossDomain": true,
     "method": "GET",
-    "url": "https://api.spoonacular.com/recipes/complexSearch?minFat=1&maxFat=50&minCarbs=5&maxCarbs=100&number=5&type=salad&addRecipeInformation=true&apiKey=54f37f7c8cf54dabb996147b296b7f34"
+    "url": "https://api.spoonacular.com/recipes/complexSearch?minFat=1&maxFat=50&minCarbs=5&maxCarbs=100&number=5&type=salad&addRecipeInformation=true&apiKey=b588453d88164a63a6b235e77276dcd0"
     //"url": "https://api.spoonacular.com/recipes/582897/nutritionWidget?apiKey=54f37f7c8cf54dabb996147b296b7f34&defaultCss=true" //$('body').html(response);
     
 	}
@@ -30,7 +30,7 @@ function getResponse( response ){
         console.log(`Id is : ${response.results[resultsCounter].id}`);
         console.log(`Title is : ${response.results[resultsCounter].title}`);
         console.log(`Dish Types : ${response.results[resultsCounter].dishTypes}`);
-
+        
         nutritionArr = response.results[resultsCounter].nutrition; 
         let nutritionCounter = 0;
         while(nutritionCounter<nutritionArr.length){
@@ -41,7 +41,7 @@ function getResponse( response ){
             nutritionCounter = nutritionCounter + 1;
         }
 
-
+        console.log(`Servings : ${response.results[resultsCounter].servings}`);
         analyzedInstructionsArr = response.results[resultsCounter].analyzedInstructions; 
         let analyzedInstructionsCounter=0;
         let stepsCounter = 0;
