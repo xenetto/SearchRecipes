@@ -12,7 +12,9 @@ let settings = {
     "url": "https://api.spoonacular.com/recipes/complexSearch?minFat=1&maxFat=50&minCarbs=5&maxCarbs=100&number=5&type=salad&addRecipeInformation=true&apiKey=b588453d88164a63a6b235e77276dcd0"
     //"url": "https://api.spoonacular.com/recipes/582897/nutritionWidget?apiKey=54f37f7c8cf54dabb996147b296b7f34&defaultCss=true" //$('body').html(response);
     
-	}
+    }
+    
+    console.log("SAHAR Test!!!!!!!")
 
 
 $.ajax(settings).then(getResponse);
