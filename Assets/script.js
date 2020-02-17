@@ -3,12 +3,11 @@ let nutritionArr = [];
 let analyzedInstructionsArr = [];
 
 let imageAdd;
-let mealImage
+let mealImage;
 
-//const apikey = "b588453d88164a63a6b235e77276dcd0";
-const apikey = "c41463de00f744d08ecd2094f8d0da82";
+const apikey = "78e1edf89c554641b274c2f5f5c2a0d6";
+//const apikey = "c41463de00f744d08ecd2094f8d0da82";
 //const apikey = "54f37f7c8cf54dabb996147b296b7f34";
-
 
 let diet;
 let cuisine;
