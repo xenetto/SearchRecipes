@@ -166,8 +166,8 @@ function prevBtn(event){
 
 function nextBtn(event){
     // console.log("next");
-    if ((offset + resultNumbers) >= 4) {
-        offset = 4; // because of (offset - resultNumbers + 1)
+    if ((offset + resultNumbers) >= 98) {
+        offset = 98; // maximum 100 records will be shown
         document.querySelector("#nextbutton").disabled = true;
     } else {
         offset = offset + resultNumbers;
