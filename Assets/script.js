@@ -16,8 +16,12 @@ let mealType;
 let intolerance;
 let ingredientIn;
 let ingredientEx;
+let sortByItem;
 let settings;
-let nutrition = [];
+let sortOrder = "desc";
+let offset = 0;
+let resultNumbers = 2;
+document.querySelector("#prevbutton").disabled = true;
     
 // This function handles events where one button is clicked
 $("#btnSearch").on("click", function(event) {
@@ -32,14 +36,14 @@ $("#btnSearch").on("click", function(event) {
     cuisine = escape($("#cuisine").val());cuisine = (cuisine=="nal")?"":cuisine;
     mealType = escape($("#mealType").val());mealType = (mealType=="nal")?"":mealType;
     intolerance =  escape($("#intolerance").val());intolerance = (intolerance=="nal")?"":intolerance;
-    //console.log(ingredientIn);console.log(ingredientEx);console.log(diet);console.log(cuisine);console.log(mealType);console.log(intolerance);
+    sortByItem =  escape($("#sortByI").val());sortByItem = (sortByItem=="nal")?"":sortByItem;
     
     
     settingsAPI = {
         "async": true,
         "crossDomain": true,
         "method": "GET",
-        "url": `https://api.spoonacular.com/recipes/complexSearch?minCalories=1&maxCalories=10000&minProtein=1&maxProtein=10000&minFat=1&maxFat=10000&minCarbs=1&maxCarbs=10000&number=${5}&addRecipeInformation=true&includeIngredients=${ingredientIn}&excludeIngredients=${ingredientEx}&diet=${diet}&cuisine=${cuisine}&type=${mealType}&cuisine=${intolerance}&apiKey=${apikey}`
+        "url": `https://api.spoonacular.com/recipes/complexSearch?minCalories=1&maxCalories=10000&minProtein=1&maxProtein=10000&minFat=1&maxFat=10000&minCarbs=1&maxCarbs=10000&number=${resultNumbers}&offset=${offset}&addRecipeInformation=true&sort=${sortByItem}&sortDirection=${sortOrder}&includeIngredients=${ingredientIn}&excludeIngredients=${ingredientEx}&diet=${diet}&cuisine=${cuisine}&type=${mealType}&cuisine=${intolerance}&apiKey=${apikey}`
     }
     
     
@@ -68,21 +72,21 @@ function getResponse( response ){
     
     while (resultsCounter<response.results.length){
 
-        console.log(`Id is : ${response.results[resultsCounter].id}`);
-        console.log(`Title is : ${response.results[resultsCounter].title}`);
-        console.log(`Dish Types : ${response.results[resultsCounter].dishTypes}`);
+        // console.log(`Id is : ${response.results[resultsCounter].id}`);
+        // console.log(`Title is : ${response.results[resultsCounter].title}`);
+        // console.log(`Dish Types : ${response.results[resultsCounter].dishTypes}`);
         
         nutritionArr = response.results[resultsCounter].nutrition;
         let nutritionCounter = 0;
         while(nutritionCounter<nutritionArr.length){
-            console.log(`Nutrition Title : ${nutritionArr[nutritionCounter].title}`);
-            console.log(`Nutrition Amount : ${nutritionArr[nutritionCounter].amount}`);
-            console.log(`Nutrition Unit : ${nutritionArr[nutritionCounter].unit}`);
-            console.log("--nutrition--");
+            // console.log(`Nutrition Title : ${nutritionArr[nutritionCounter].title}`);
+            // console.log(`Nutrition Amount : ${nutritionArr[nutritionCounter].amount}`);
+            // console.log(`Nutrition Unit : ${nutritionArr[nutritionCounter].unit}`);
+            // console.log("--nutrition--");
             nutritionCounter = nutritionCounter + 1;
         }
 
-        console.log(`Servings : ${response.results[resultsCounter].servings}`);
+        //console.log(`Servings : ${response.results[resultsCounter].servings}`);
         analyzedInstructionsArr = response.results[resultsCounter].analyzedInstructions;
         let analyzedInstructionsCounter=0;
         let stepsCounter = 0;
@@ -90,13 +94,13 @@ function getResponse( response ){
         while (analyzedInstructionsCounter<analyzedInstructionsArr.length){
             recipeConcat = "Recipe : ";
             while(stepsCounter<analyzedInstructionsArr[analyzedInstructionsCounter].steps.length){
-                console.log(`analyzedInstructions Name : ${analyzedInstructionsArr[analyzedInstructionsCounter].name}`);
-                console.log(`analyzedInstructions Steps(number) : ${analyzedInstructionsArr[analyzedInstructionsCounter].steps[stepsCounter].number}`);
-                console.log(`analyzedInstructions Steps(step) : ${analyzedInstructionsArr[analyzedInstructionsCounter].steps[stepsCounter].step}`);
+                // console.log(`analyzedInstructions Name : ${analyzedInstructionsArr[analyzedInstructionsCounter].name}`);
+                // console.log(`analyzedInstructions Steps(number) : ${analyzedInstructionsArr[analyzedInstructionsCounter].steps[stepsCounter].number}`);
+                // console.log(`analyzedInstructions Steps(step) : ${analyzedInstructionsArr[analyzedInstructionsCounter].steps[stepsCounter].step}`);
                 recipeConcat = recipeConcat + ((recipeConcat=="Recipe : ")?"":" | ") + analyzedInstructionsArr[analyzedInstructionsCounter].steps[stepsCounter].step;
                 stepsCounter = stepsCounter + 1;
             }
-            console.log("---------------------------------------");
+            //console.log("---------------------------------------");
             analyzedInstructionsCounter = analyzedInstructionsCounter + 1;
             stepsCounter = 0;
         }
@@ -137,9 +141,40 @@ function getError( errorStatus ) {
 
 
 function getnutritionResponse(response){
-    
+    console.log(`<.Then> callback <${response}>`);
 }
 
 function getnutritionError(errorStatus){
+    console.log(`<.Fail> callback <${errorStatus}>`);
+}
 
+
+function prevBtn(event){
+    // console.log("prev");
+    if ((offset - resultNumbers) <= 0) {
+        offset = 0;
+        document.querySelector("#prevbutton").disabled = true;
+    } else {
+        offset = offset - resultNumbers;
+        document.querySelector("#prevbutton").disabled = false;
+        document.querySelector("#nextbutton").disabled = false;
+    } 
+    settingsAPI.url = `https://api.spoonacular.com/recipes/complexSearch?minCalories=1&maxCalories=10000&minProtein=1&maxProtein=10000&minFat=1&maxFat=10000&minCarbs=1&maxCarbs=10000&number=${resultNumbers}&offset=${offset}&addRecipeInformation=true&sort=${sortByItem}&sortDirection=${sortOrder}&includeIngredients=${ingredientIn}&excludeIngredients=${ingredientEx}&diet=${diet}&cuisine=${cuisine}&type=${mealType}&cuisine=${intolerance}&apiKey=${apikey}`
+    searchCall();
+    // console.log(offset);
+}
+
+function nextBtn(event){
+    // console.log("next");
+    if ((offset + resultNumbers) >= 4) {
+        offset = 4; // because of (offset - resultNumbers + 1)
+        document.querySelector("#nextbutton").disabled = true;
+    } else {
+        offset = offset + resultNumbers;
+        document.querySelector("#prevbutton").disabled = false;
+        document.querySelector("#nextbutton").disabled = false;
+    }
+    settingsAPI.url = `https://api.spoonacular.com/recipes/complexSearch?minCalories=1&maxCalories=10000&minProtein=1&maxProtein=10000&minFat=1&maxFat=10000&minCarbs=1&maxCarbs=10000&number=${resultNumbers}&offset=${offset}&addRecipeInformation=true&sort=${sortByItem}&sortDirection=${sortOrder}&includeIngredients=${ingredientIn}&excludeIngredients=${ingredientEx}&diet=${diet}&cuisine=${cuisine}&type=${mealType}&cuisine=${intolerance}&apiKey=${apikey}`
+    searchCall();
+    //console.log(offset);
 }
