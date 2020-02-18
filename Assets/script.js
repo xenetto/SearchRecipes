@@ -5,8 +5,8 @@ let analyzedInstructionsArr = [];
 let imageAdd;
 let mealImage;
 
-const apikey = "b588453d88164a63a6b235e77276dcd0";
-//const apikey = "c41463de00f744d08ecd2094f8d0da82";
+//const apikey = "b588453d88164a63a6b235e77276dcd0";
+const apikey = "f47ea2142e184265bdfc7c1a4cc66d55";
 //const apikey = "54f37f7c8cf54dabb996147b296b7f34";
 
 let diet;
@@ -23,6 +23,26 @@ let sortOrder = "desc";
 let offset = 0;
 let resultNumbers = 2;
 document.querySelector("#prevbutton").disabled = true;
+
+function showForm(evt, formName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(formName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+
+
+  
     
 // This function handles events where one button is clicked
 $("#btnSearch").on("click", function(event) {
@@ -235,4 +255,7 @@ function nextBtn(event){
     settingsAPI.url = `https://api.spoonacular.com/recipes/complexSearch?minCalories=1&maxCalories=10000&minProtein=1&maxProtein=10000&minFat=1&maxFat=10000&minCarbs=1&maxCarbs=10000&number=${resultNumbers}&offset=${offset}&addRecipeInformation=true&sort=${sortByItem}&sortDirection=${sortOrder}&includeIngredients=${ingredientIn}&excludeIngredients=${ingredientEx}&diet=${diet}&cuisine=${cuisine}&type=${mealType}&cuisine=${intolerance}&apiKey=${apikey}`
     searchCall();
     //console.log(offset);
+
+/////////////////////////////////////////////SAHAR/////////////////////////////////////////////////
+
 }

@@ -20,147 +20,152 @@
     </section>
     
     <section id="s2" >
-        <aside class="aside aside1" style="width: 100px;">
+        <aside class="aside aside1" style="width: 40px;">
             <div class="header">
                 <h2>MEAL PLAN</h2>
             </div>
         </br>
-            <div class="card" >
-                <div class="card-header">
-                    <h>Customize Your Meal</h>
-                </div>
-            <br> 
-            <form id="search-form">
-                <div class="card-body">
-                    <div class="form">
-                        <label for="ingredientIn">Ingredients Include:</label>
-                        <input type="text" class='form-control' id="ingredientIn">
-                    </div>
-                </br>
-                    <div class="form">
-                        <label for="ingredientEx">Ingredients Exclude:</label>
-                        <input type="text" class='form-control' id="ingredientEx">
-                    </div>
-                </br>
-                    <div class="form">
-                        <label for="dietType">Diets Type:</label>
-                        <select id="diet" class='form-control'>
-                        <option value="nal"></option>
-                        <option value="glutenFree">Gluten Free</option>
-                        <option value="ketogenic">Ketogenic</option>
-                        <option value="vegetarian">Vegetarian</option>
-                        <option value="lactoVegetarian">Lacto-Vegetarian</option>
-                        <option value="vegan">Vegan</option>
-                        <option value="pescetarian">Pescetarian</option>
-                        <option value="paleo">Paleo</option>
-                        <option value="primal">Primal</option>
-                        <option value="whole30">Whole30</option>
-                        <option value="ovoVegetarian">Ovo-Vegetarian</option>
-                        </select>
-                    </div>
-                </br>
-                    <div class="form">
-                        <label for="cuisine">Cuisines:</label>
-                        <select id="cuisine" class='form-control'>
-                        <option value="nal"></option>
-                        <option value="african">African</option>
-                        <option value="american">American</option>
-                        <option value="british">British</option>
-                        <option value="cajun">Cajun</option>
-                        <option value="caribbean">Caribbean</option>
-                        <option value="chinese">Chinese</option>
-                        <option value="easternEuropean">Eastern European</option>
-                        <option value="european">European</option>
-                        <option value="french">French</option>
-                        <option value="german">German</option>
-                        <option value="greek">Greek</option>
-                        <option value="indian">Indian</option>
-                        <option value="irish">Irish</option>
-                        <option value="italian">Italian</option>
-                        <option value="japanese">Japanese</option>
-                        <option value="jewish">Jewish</option>
-                        <option value="korean">Korean</option>
-                        <option value="latinAmerican">Latin American</option>
-                        <option value="mediterranean">Mediterranean</option>
-                        <option value="mexican">Mexican</option>
-                        <option value="middleEastern">Middle Eastern</option>
-                        <option value="nordic">Nordic</option>
-                        <option value="southern">Southern</option>
-                        <option value="spanish">Spanish</option>
-                        <option value="thai">Thai</option>
-                        <option value="vietnamese">Vietnamese</option>
-                        </select>
-                    </div>
-                </br>
-                    <div class="form">
-                        <label for="mealType">Meal Type:</label>
-                        <select id="mealType" class='form-control'>
-                        <option value="nal"></option>
-                        <option value="main course">Main Course</option>
-                        <option value="side dish">Side Dish</option>
-                        <option value="dessert">Dessert</option>
-                        <option value="appetizer">Appetizer</option>
-                        <option value="salad">Salad</option>
-                        <option value="bread">Bread</option>
-                        <option value="breakfast">Breakfast</option>
-                        <option value="soup">Soup</option>
-                        <option value="beverage">Beverage</option>
-                        <option value="sauce">Sauce</option>
-                        <option value="marinade">Marinade</option>
-                        <option value="fingerFood">Fingerfood</option>
-                        <option value="snack">Snack</option>
-                        <option value="drink">Drink</option>
-                        </select>
-                    </div>
-                </br>
-                    <div class="form">
-                        <label for="intolerance">Intolerances:</label>
-                        <select id="intolerance" class='form-control'>
-                        <option value="nal"></option>
-                        <option value="Dairy">Dairy</option>
-                        <option value="Egg">Egg</option>
-                        <option value="Gluten">Gluten</option>
-                        <option value="Grain">Grain</option>
-                        <option value="Peanut">Peanut</option>
-                        <option value="Seafood">Seafood</option>
-                        <option value="Sesame">Sesame</option>
-                        <option value="ShellFish">Shellfish</option>
-                        <option value="Soy">Soy</option>
-                        <option value="Sulfite">Sulfite</option>
-                        <option value="Tree Nut">Tree Nut</option>
-                        <option value="Wheat">Wheat</option>
-                        </select>
-                    </div>
-                </br>
-                <div class="form">
-                    <label for="recipeName">Recipe Name:</label>
-                    <input type="text" class='form-control' id="recipeName">
-                </div>
+
+        <div class="tab">
+            <button class="tablinks" onclick="showForm(event,'customizedMeal')" id="defaultOpen">Customize Your Meal</button>
+            <button class="tablinks" onclick="showForm(event, 'recipeName')">Recipe Name</button>
+        </div>
+          
+        <div id="customizedMeal" class="tabcontent">
+            <div class="form">
+
             </br>
-                    <button type="submit" id="btnSearch" class="btn btn-primary">Search</button>
-                </div>
-            </form>
-            </div>
+            <label for="ingredientIn">Ingredients Include:</label>
+            <input type="text" class='form-control' id="ingredientIn">
+         </div>
         </br>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h>Sorted By:</h>
-                </div>
-                <div class="card-body ">
-                    <div class="form">
-                        <label for="sortByI">Sort-By:</label>
-                        <select id="sortByI" class="form-control">
-                            <option value="nal"></option>
-                            <option value="carbs">Carbs</option>
-                            <option value="protein">Protein</option>
-                            <option value="calories">Calories</option>
-                            <option value="total-fat">Fat</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </aside>
+        <div class="form">
+            <label for="ingredientEx">Ingredients Exclude:</label>
+            <input type="text" class='form-control' id="ingredientEx">
+        </div>
+    </br>
+    <div class="form">
+        <label for="dietType">Diets Type:</label>
+        <select id="diet" class='form-control'>
+        <option value="nal"></option>
+        <option value="glutenFree">Gluten Free</option>
+        <option value="ketogenic">Ketogenic</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="lactoVegetarian">Lacto-Vegetarian</option>
+        <option value="vegan">Vegan</option>
+        <option value="pescetarian">Pescetarian</option>
+        <option value="paleo">Paleo</option>
+        <option value="primal">Primal</option>
+        <option value="whole30">Whole30</option>
+        <option value="ovoVegetarian">Ovo-Vegetarian</option>
+    </select>
+</div>
+</br>
+<div class="form">
+    <label for="cuisine">Cuisines:</label>
+    <select id="cuisine" class='form-control'>
+    <option value="nal"></option>
+    <option value="african">African</option>
+    <option value="american">American</option>
+    <option value="british">British</option>
+    <option value="cajun">Cajun</option>
+    <option value="caribbean">Caribbean</option>
+    <option value="chinese">Chinese</option>
+    <option value="easternEuropean">Eastern European</option>
+    <option value="european">European</option>
+    <option value="french">French</option>
+    <option value="german">German</option>
+    <option value="greek">Greek</option>
+    <option value="indian">Indian</option>
+    <option value="irish">Irish</option>
+    <option value="italian">Italian</option>
+    <option value="japanese">Japanese</option>
+    <option value="jewish">Jewish</option>
+    <option value="korean">Korean</option>
+    <option value="latinAmerican">Latin American</option>
+    <option value="mediterranean">Mediterranean</option>
+    <option value="mexican">Mexican</option>
+    <option value="middleEastern">Middle Eastern</option>
+    <option value="nordic">Nordic</option>
+    <option value="southern">Southern</option>
+    <option value="spanish">Spanish</option>
+    <option value="thai">Thai</option>
+    <option value="vietnamese">Vietnamese</option>
+    </select>
+</div>
+</br>
+<div class="form">
+    <label for="mealType">Meal Type:</label>
+    <select id="mealType" class='form-control'>
+    <option value="nal"></option>
+    <option value="main course">Main Course</option>
+    <option value="side dish">Side Dish</option>
+    <option value="dessert">Dessert</option>
+    <option value="appetizer">Appetizer</option>
+    <option value="salad">Salad</option>
+    <option value="bread">Bread</option>
+    <option value="breakfast">Breakfast</option>
+    <option value="soup">Soup</option>
+    <option value="beverage">Beverage</option>
+    <option value="sauce">Sauce</option>
+    <option value="marinade">Marinade</option>
+    <option value="fingerFood">Fingerfood</option>
+    <option value="snack">Snack</option>
+    <option value="drink">Drink</option>
+    </select>
+</div>
+</br>
+<div class="form">
+    <label for="intolerance">Intolerances:</label>
+    <select id="intolerance" class='form-control'>
+    <option value="nal"></option>
+    <option value="Dairy">Dairy</option>
+    <option value="Egg">Egg</option>
+    <option value="Gluten">Gluten</option>
+    <option value="Grain">Grain</option>
+    <option value="Peanut">Peanut</option>
+    <option value="Seafood">Seafood</option>
+    <option value="Sesame">Sesame</option>
+    <option value="ShellFish">Shellfish</option>
+    <option value="Soy">Soy</option>
+    <option value="Sulfite">Sulfite</option>
+    <option value="Tree Nut">Tree Nut</option>
+    <option value="Wheat">Wheat</option>
+    </select>
+</div>
+</br>
+<button type="submit" id="btnSearch" class="btn btn-primary">Search</button>
+
+</div>
+          
+<div id="recipeName" class="tabcontent">
+<div class="form">
+</br>
+<label for="recipeName">Recipe Name:</label>
+</br>
+<input type="text" class='form-control' id="recipeName">
+</div>
+</br>
+<button type="submit" id="btnSearch" class="btn btn-primary">Search</button>
+</div>
+</br>
+ <div class="card">
+    <div class="card-header">
+        <h>Sorted By:</h>
+    </div>
+    <div class="card-body ">
+        <div class="form">
+            <select id="sortByI" class="form-control">
+                <option value="nal"></option>
+                <option value="carbs">Carbs</option>
+                <option value="protein">Protein</option>
+                <option value="calories">Calories</option>
+                <option value="total-fat">Fat</option>
+            </select>
+        </div>
+    </div>
+</div>
+</aside>
 
         <article class="main">
             <h2>Search Results :</h2>
@@ -187,12 +192,12 @@
                                 </div>
                             
                                 <div class="row" style="border: solid 0px; padding-left: 30px; padding-right: 30px; padding-top:20px">
-                                    <div class="col"  id="calEl1" style="color: gray; font-size: 15px; border: solid 1px; background-color: lightgreen; border-radius: 10px; margin-right: 10px;"></div>
-                                    <div class="col"  id="proEl1" style="color: gray; font-size: 15px; border: solid 1px; background-color: lightgreen; border-radius: 10px; margin-right: 10px;"></div>
-                                    <div class="col"  id="fatEl1" style="color: gray; font-size: 15px; border: solid 1px; background-color: lightgreen; border-radius: 10px; margin-right: 10px;"></div>
-                                    <div class="col"  id="carEl1" style="color: gray; font-size: 15px; border: solid 1px; background-color: lightgreen; border-radius: 10px; "></div>
-                                    <div class="col"  style="color: gray; font-size: 15px; border: solid 0px; border-radius: 5px;"></div>
-                                    <div class="col"  style="color: gray; font-size: 15px; border: solid 0px; border-radius: 5px;"></div>
+                                    <div id="calEl1" style="color: gray; font-size: 15px; background-color: #c5efc5; border-radius: 10px; margin-right: 10px; vertical-align: middle; width:130px; height: 40px; display: inline-block; text-align: center; line-height: 40px;"></div>
+                                    <div id="proEl1" style="color: gray; font-size: 15px; background-color:lavender; border-radius: 10px; margin-right: 10px; vertical-align: middle; width:130px; height: 40px; display: inline-block; text-align: center; line-height: 40px;"></div>
+                                    <div id="fatEl1" style="color: gray; font-size: 15px; background-color:lightgoldenrodyellow; border-radius: 10px; margin-right: 10px; vertical-align: middle; width:130px; height: 40px; display: inline-block; text-align: center; line-height: 40px;"></div>
+                                    <div id="carEl1" style="color: gray; font-size: 15px; background-color:thistle; border-radius: 10px; margin-right: 10px; vertical-align: middle; width:130px; height: 40px; display: inline-block; text-align: center; line-height: 40px;"></div>
+                                    <div style="color: gray; font-size: 15px; border: solid 0px; border-radius: 5px;"></div>
+                                    <div style="color: gray; font-size: 15px; border: solid 0px; border-radius: 5px;"></div>
                                 </div>
                             </div>
                         </div>
@@ -212,12 +217,12 @@
                                 </div>
 
                                 <div class="row" style="border: solid 0px; padding-left: 30px; padding-right: 30px; padding-top:20px">
-                                    <div class="col"  id="calEl2" style="color: gray; font-size: 15px; border: solid 1px; background-color: lightgreen; border-radius: 10px; margin-right: 10px;"></div>
-                                    <div class="col"  id="proEl2" style="color: gray; font-size: 15px; border: solid 1px; background-color: lightgreen; border-radius: 10px; margin-right: 10px;"></div>
-                                    <div class="col"  id="fatEl2" style="color: gray; font-size: 15px; border: solid 1px; background-color: lightgreen; border-radius: 10px; margin-right: 10px;"></div>
-                                    <div class="col"  id="carEl2" style="color: gray; font-size: 15px; border: solid 1px; background-color: lightgreen; border-radius: 10px; "></div>
-                                    <div class="col"  style="color: gray; font-size: 15px; border: solid 0px; border-radius: 5px;"></div>
-                                    <div class="col"  style="color: gray; font-size: 15px; border: solid 0px; border-radius: 5px;"></div>
+                                    <div id="calEl2" style="color: gray; font-size: 15px; background-color: #c5efc5; border-radius: 10px; margin-right: 10px; vertical-align: middle; width:130px; height: 40px; display: inline-block; text-align: center; line-height: 40px;"></div>
+                                    <div id="proEl2" style="color: gray; font-size: 15px; background-color:lavender; border-radius: 10px; margin-right: 10px; vertical-align: middle; width:130px; height: 40px; display: inline-block; text-align: center; line-height: 40px;"></div>
+                                    <div id="fatEl2" style="color: gray; font-size: 15px; background-color:lightgoldenrodyellow; border-radius: 10px; margin-right: 10px; vertical-align: middle; width:130px; height: 40px; display: inline-block; text-align: center; line-height: 40px;"></div>
+                                    <div id="carEl2" style="color: gray; font-size: 15px; background-color:thistle; border-radius: 10px; margin-right: 10px; vertical-align: middle; width:130px; height: 40px; display: inline-block; text-align: center; line-height: 40px;"></div>
+                                    <div style="color: gray; font-size: 15px; border: solid 0px; border-radius: 5px;"></div>
+                                    <div style="color: gray; font-size: 15px; border: solid 0px; border-radius: 5px;"></div>
                                 </div>
                             </div>
                         </div>
