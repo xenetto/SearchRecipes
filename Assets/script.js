@@ -23,28 +23,6 @@ let sortOrder = "desc";
 let offset = 0;
 let resultNumbers = 2;
 document.querySelector("#prevbutton").disabled = true;
-
-//      added by Sahar   //
-function showForm(evt, formName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(formName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-///////////////////////////////
-  
-  // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
-
-
-  
     
 // This function handles events where one button is clicked
 $("#btnSearch").on("click", function(event) {
@@ -257,7 +235,4 @@ function nextBtn(event){
     settingsAPI.url = `https://api.spoonacular.com/recipes/complexSearch?minCalories=1&maxCalories=10000&minProtein=1&maxProtein=10000&minFat=1&maxFat=10000&minCarbs=1&maxCarbs=10000&number=${resultNumbers}&offset=${offset}&addRecipeInformation=true&sort=${sortByItem}&sortDirection=${sortOrder}&includeIngredients=${ingredientIn}&excludeIngredients=${ingredientEx}&diet=${diet}&cuisine=${cuisine}&type=${mealType}&cuisine=${intolerance}&apiKey=${apikey}`
     searchCall();
     //console.log(offset);
-
-/////////////////////////////////////////////SAHAR/////////////////////////////////////////////////
-
 }
