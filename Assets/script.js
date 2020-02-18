@@ -24,6 +24,7 @@ let offset = 0;
 let resultNumbers = 2;
 document.querySelector("#prevbutton").disabled = true;
 
+//      added by Sahar   //
 function showForm(evt, formName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -37,6 +38,7 @@ function showForm(evt, formName) {
     document.getElementById(formName).style.display = "block";
     evt.currentTarget.className += " active";
   }
+///////////////////////////////
   
   // Get the element with id="defaultOpen" and click on it
   document.getElementById("defaultOpen").click();
