@@ -4,7 +4,6 @@ let analyzedInstructionsArr = [];
 
 let imageAdd;
 let mealImage;
-
 let diet;
 let cuisine;
 let mealType;
