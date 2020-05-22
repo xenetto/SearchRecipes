@@ -1,7 +1,7 @@
 
 let nutritionArr = [];
 let analyzedInstructionsArr = [];
-
+let apikey = "6ed5d5be474a40dc9e20bbadd9f8f524";
 let imageAdd;
 let mealImage;
 let diet;
