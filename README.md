@@ -1,13 +1,12 @@
 # Project 1 : Search-For-Recipes
-github address : 
-https://github.com/xenetto/SearchRecipes
-https://xenetto.github.io/SearchRecipes/
 
+An app for search and find desired recipes by Name, Nutrition, Ingredients or Diet Type and sorting the results based on nutrition.
+
+Utilized: HTML – CSS – Bootstrap – JavaScript – Node.JS – API – GitHub
 
 
 ## References:
 ```
-
 https://api.spoonacular.com/recipes/complexSearch?minFat=1&maxFat=50&number=5&type=salad&addRecipeInformation=true&apiKey=...
 
 https://api.spoonacular.com/food/ingredients/autocomplete?query=appl&number=5&apiKey=...
@@ -55,4 +54,6 @@ https://spoonacular.com/food-api/docs#Search-Recipes-Complex
 
 ## Next delivery : 
 Calculate the BMI and propose the most healthy foods based on customer weight, height, sex and age
+
+Published at : https://xenetto.github.io/SearchRecipes/
 
